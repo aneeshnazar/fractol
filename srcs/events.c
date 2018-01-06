@@ -6,16 +6,30 @@
 /*   By: anazar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 14:42:02 by anazar            #+#    #+#             */
-/*   Updated: 2018/01/05 14:42:40 by anazar           ###   ########.fr       */
+/*   Updated: 2018/01/05 19:38:38 by anazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fractol.h>
 
-int		key_event(int keycode)
+int		key_event(int keycode, t_fractol *fract)
 {
 	if (keycode == 53)
 		exit(0);
+	if (keycode == 27)
+		--fract->max_it;
+	if (keycode == 24)
+		++fract->max_it;
+	if (keycode == 123)
+		fract->mand.mid_re += fract->zoom / 10;
+	if (keycode == 124)
+		fract->mand.mid_re -= fract->zoom / 10;
+	if (keycode == 126)
+		fract->mand.mid_im += fract->zoom / 10;
+	if (keycode == 125)
+		fract->mand.mid_im -= fract->zoom / 10;
+	set_bounds(fract);
+	fract->draw = 1;
 	return (0);
 }
 
@@ -33,10 +47,7 @@ int		mouse_event(int button, int x, int y, t_fractol *fract)
 		fract->zoom += 0.1;
 	if (button == 5)
 		fract->zoom -= 0.1;
-	fract->mand.min_re = -fract->zoom;
-	fract->mand.max_re = fract->zoom;
-	fract->mand.min_im = -fract->zoom;
-	fract->mand.max_im = fract->zoom;
+	set_bounds(fract);
 	fract->draw = 1;
 	return (0);
 }

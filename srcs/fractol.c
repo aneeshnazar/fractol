@@ -6,7 +6,7 @@
 /*   By: anazar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 16:57:05 by anazar            #+#    #+#             */
-/*   Updated: 2018/01/05 14:42:52 by anazar           ###   ########.fr       */
+/*   Updated: 2018/01/05 19:29:06 by anazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,9 @@ void	fractol(char *str)
 	fract = init_fractol(str);
 	fract.zoom = 1;
 	fract.offset = init_coord(0, 0);
-	fract.mand.min_re = -fract.zoom;
-	fract.mand.max_re = fract.zoom;
-	fract.mand.min_im = -fract.zoom;
-	fract.mand.max_im = fract.zoom;
+	fract.mand.mid_re = 0.0;
+	fract.mand.mid_im = 0.0;
+	set_bounds(&fract);
 	expose_event(&fract);
 	init_hooks(&fract);
 	mlx_loop_hook(fract.mlx, hook, &fract);

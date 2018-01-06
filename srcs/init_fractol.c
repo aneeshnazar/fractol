@@ -6,7 +6,7 @@
 /*   By: anazar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 14:36:48 by anazar            #+#    #+#             */
-/*   Updated: 2018/01/05 14:45:46 by anazar           ###   ########.fr       */
+/*   Updated: 2018/01/05 14:57:19 by anazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ t_fractol	init_fractol(char *str)
 	else
 		fract.type = 3;
 	init_color(&fract);
+	fract.max_it = 40;
 	return (fract);
 }

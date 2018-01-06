@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   set_bounds.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anazar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/02 16:24:01 by anazar            #+#    #+#             */
-/*   Updated: 2018/01/05 14:52:23 by anazar           ###   ########.fr       */
+/*   Created: 2018/01/05 19:26:13 by anazar            #+#    #+#             */
+/*   Updated: 2018/01/05 19:27:56 by anazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fractol.h>
 
-int		main(int argc, char **argv)
+void	set_bounds(t_fractol *fract)
 {
-	if (argc == 2)
-	{
-		if (ft_find("julia mandelbrot bship", argv[1]) != -1)
-			fractol(argv[1]);
-		else
-			ft_putendl("Please try again.\n");
-	}
-	else
-	{
-		ft_putendl("Please specify a fractol.");
-		ft_putendl("usage:\t./fractol [fractal name]\n");
-	}
-	ft_putendl("These are the available fractals:");
-	ft_putendl("\t>julia\n\t>mandelbrot\n\t>bship");
-	return (0);
+	fract->mand.min_re = fract->mand.mid_re - fract->zoom;
+	fract->mand.max_re = fract->mand.mid_re + fract->zoom;
+	fract->mand.min_im = fract->mand.mid_im - fract->zoom;
+	fract->mand.max_im = fract->mand.mid_im + fract->zoom;
 }

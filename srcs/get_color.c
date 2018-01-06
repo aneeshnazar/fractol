@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_color.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anazar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/02 16:24:01 by anazar            #+#    #+#             */
-/*   Updated: 2018/01/05 14:52:23 by anazar           ###   ########.fr       */
+/*   Created: 2018/01/05 15:09:28 by anazar            #+#    #+#             */
+/*   Updated: 2018/01/05 15:30:29 by anazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fractol.h>
 
-int		main(int argc, char **argv)
+t_color		get_color(t_fractol *fract, int i)
 {
-	if (argc == 2)
-	{
-		if (ft_find("julia mandelbrot bship", argv[1]) != -1)
-			fractol(argv[1]);
-		else
-			ft_putendl("Please try again.\n");
-	}
-	else
-	{
-		ft_putendl("Please specify a fractol.");
-		ft_putendl("usage:\t./fractol [fractal name]\n");
-	}
-	ft_putendl("These are the available fractals:");
-	ft_putendl("\t>julia\n\t>mandelbrot\n\t>bship");
-	return (0);
+	int		val;
+	int		m_it;
+
+	m_it = fract->max_it <= 0 ? 1 : fract->max_it;
+	val = RANGE_CHANGE(i, 0, 256, 0, m_it);
+	return (val << 8);
 }
