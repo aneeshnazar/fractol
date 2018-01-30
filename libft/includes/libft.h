@@ -6,7 +6,7 @@
 /*   By: anazar <anazar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/05 10:14:28 by anazar            #+#    #+#             */
-/*   Updated: 2017/12/26 15:42:09 by anazar           ###   ########.fr       */
+/*   Updated: 2018/01/29 21:18:20 by anazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # define DBG_CHAR(str, x) ft_putstr(str); ft_putchar(x); ft_putchar('\n');
 # define MIN(x, y) (x < y ? x : y )
 # define MAX(x, y) (x >= y ? x : y)
-# define ABS(x) (x >= 0 ? x : -x)
+# define ABS(x) (x > 0 ? x : -x)
 # define PI 3.141592653
 # define POW(x, y, o) o = x; int p_it = 0; while(++p_it < y) o *= x;
 # define AVG(x, y) ((x + y) / 2.0)

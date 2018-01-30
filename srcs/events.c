@@ -6,7 +6,7 @@
 /*   By: anazar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 14:42:02 by anazar            #+#    #+#             */
-/*   Updated: 2018/01/05 19:38:38 by anazar           ###   ########.fr       */
+/*   Updated: 2018/01/29 21:18:00 by anazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ int		mouse_event(int button, int x, int y, t_fractol *fract)
 	if (button == 2)
 		fract->rclicked = 1;
 	if (button == 4)
-		fract->zoom += 0.1;
+		fract->zoom *= 1.1;
 	if (button == 5)
-		fract->zoom -= 0.1;
+		fract->zoom *= 0.9;
 	set_bounds(fract);
 	fract->draw = 1;
 	return (0);

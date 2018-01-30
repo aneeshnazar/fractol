@@ -6,11 +6,12 @@
 /*   By: anazar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 19:02:41 by anazar            #+#    #+#             */
-/*   Updated: 2018/01/05 15:20:42 by anazar           ###   ########.fr       */
+/*   Updated: 2018/01/29 21:48:55 by anazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fractol.h>
+#include <math.h>
 
 static int	iterate(int max_it, double scaled_x, double scaled_y)
 {
@@ -22,11 +23,11 @@ static int	iterate(int max_it, double scaled_x, double scaled_y)
 	x0 = 0.0;
 	y0 = 0.0;
 	i = 0;
-	while (i < max_it && ((x0 * x0 + y0 * y0) < 4))
+	while (i < max_it && ((x0 * x0 + y0 * y0) < 4.0))
 	{
 		x_tmp = x0 * x0 - y0 * y0 + scaled_x;
-		y0 = ABS(2 * x0 * y0 + scaled_y);
-		x0 = ABS(x_tmp);
+		y0 = fabs(2 * x0 * y0 + scaled_y);
+		x0 = fabs(x_tmp);
 		++i;
 	}
 	return (i);

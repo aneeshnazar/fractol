@@ -6,7 +6,7 @@
 /*   By: anazar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 14:36:48 by anazar            #+#    #+#             */
-/*   Updated: 2018/01/05 14:57:19 by anazar           ###   ########.fr       */
+/*   Updated: 2018/01/29 21:33:54 by anazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,13 @@ t_fractol	init_fractol(char *str)
 		fract.type = 1;
 	else if (!ft_strcmp(str, "mandelbrot"))
 		fract.type = 2;
-	else
+	else if (!ft_strcmp(str, "bship"))
 		fract.type = 3;
+	else
+	{
+		ft_putendl("Invalid fractol entered.");
+		exit(0);
+	}
 	init_color(&fract);
 	fract.max_it = 40;
 	return (fract);
